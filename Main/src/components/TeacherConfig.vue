@@ -1,15 +1,19 @@
 <template>
-<table>
+<table class="table table-dark">
+  <thead>
   <tr>
-    <th>№</th>
-    <th v-for="head in tableHeaders" :key="head">{{head}}</th>
+    <th scope="col">№</th>
+    <th scope="col" v-for="head in tableHeaders" :key="head">{{head}}</th>
   </tr>
-  <tr v-for="rule in rulesList" :key="rule.id">
-    <th>{{rule.id}}</th>
-    <th>{{rule.name}}</th>
-    <th>{{rule.description}}</th>
-    <th><input type="checkbox" class="department" @click="select(rule.value)" v-bind:id=rule.id v-bind:value=rule.value v-model="selectedRules"></th>
+  </thead>
+  <tbody>
+  <tr scope="row" v-for="rule in rulesList" :key="rule.id">
+    <td>{{rule.id}}</td>
+    <td>{{rule.name}}</td>
+    <td>{{rule.description}}</td>
+    <td><input type="checkbox" @click="select(rule.value)"></td>
   </tr>
+  </tbody>
 
 </table>
 </template>
@@ -18,7 +22,12 @@
 export default {
   name: "TeacherConfig",
   data(){ return{
-    selectedRules:[],
+    selectedRules: {
+      market:false,
+      green:false,
+      ecology:false
+
+    },
     rulesList:{
         market:{
           id:1,
@@ -26,16 +35,22 @@ export default {
           description:"У випадку занадто високих цін дозволяє покупку енергії у держав-партнерів",
           value:"market"
         },
+      crash:{
+        id:2,
+        name:"Пошкодження обладнання",
+        description:"В залежності від фінансування буде змінюватися шанс пошкоджень та перерв в роботі станції",
+        value:"crash"
+      },
         greenEnergy:{
-          id:2,
+          id:3,
           name:"Зелений тариф",
           description:"ВДЕ отримують додаткове фінансування у розмірі",
           value:"green"
         },
         ecology:{
-          id:3,
-          name:"Активувати міжнародний ринок",
-          description:"У випадку занадто високих цін дозволяє покупку енергії у держав-партнерів",
+          id:4,
+          name:"Штрафи за низьку екологічність",
+          description:"За не дотримання екологічних норм гравців буде оштрафовано",
           value:"ecology"
         },
 
@@ -53,9 +68,8 @@ export default {
   },
   methods:{
     select: function (value) {
-      //this.allSelected = false;
-      this.selectedRules.pop[value];
-      console.log(this.selectedRules())
+      this.selectedRules[value]=!this.selectedRules[value]
+      console.log(this.selectedRules)
 
     },
   },
