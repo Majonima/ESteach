@@ -1,18 +1,20 @@
 <template>
-
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
   <TeacherConfig/>
+  <TradeResult/>
+  <PowerStation/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import TeacherConfig from "@/components/TeacherConfig";
+import TradeResult from "@/components/TradeResult";
+import PowerStation from "@/components/PowerStation";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    TeacherConfig
+    TeacherConfig,
+    TradeResult,
+    PowerStation,
   }
 }
 </script>
@@ -23,6 +25,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  padding-top: 10px;
   color: #2c3e50;
 }
 @import'~bootstrap/dist/css/bootstrap.css';
