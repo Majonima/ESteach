@@ -1,5 +1,5 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+
   <HelloWorld msg="Welcome to Your Vue.js App"/>
   <TeacherConfig/>
 </template>
@@ -24,6 +24,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
+@import'~bootstrap/dist/css/bootstrap.css';
 </style>
