@@ -8,19 +8,13 @@
       <th scope="col"> <button class="btn bg-dark btn-secondary dropdown-toggle border-dark shadow-none"  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
         Dropdown button
       </button>
-        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
-        <li>
-          <a class="dropdown-item" href="#">Action</a>
-        </li>
-        <li>
-          <a class="dropdown-item" href="#">Another action</a>
-        </li>
-        <li>
-          <a class="dropdown-item" href="#">Something else here</a>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1" >
+        <li v-for="value in stationTypes" v-bind:key="value">
+          <a @click="stationParams.type=value" class="dropdown-item">{{ value }}</a>
         </li>
         </ul>
       </th>
-      <th scope="col w-75" rowspan="1" colspan="3" > текст</th>
+      <th scope="col w-75" rowspan="1" colspan="3" > {{ stationParams.type }}</th>
     </tr>
     </thead>
     <tbody >
@@ -39,21 +33,25 @@ export default {
   name: "PowerStation",
   data(){
     return {
-      show:false,
+      show:true,
       stationParams:{
-        type:{
-          nuclear:false,
-          thermal:false,
-          solar:false,
-          wind:false,
-          hydro:false
-        },
-        surcharge:0,
+        type:"",
+        surcharge:{
+          value: 0,
+          min: 0,
+          max: 100,
+          symbol: " %",
+          text: ""},
         ecology:false,
         equipment:0,
         staff:0,
       },
+      stationTypes:["nuclear", "thermal", "solar", "wind", "hydro"],
+
     }
+  },
+  methods:{
+
   },
 }
 </script>
