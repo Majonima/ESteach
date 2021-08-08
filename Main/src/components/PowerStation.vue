@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar navbar-dark bg-dark w-75 mx-auto mb-1" @click="show=!show" rowspan="2" colspan="5" scope="col">
+  <div class="navbar navbar-dark bg-dark w-75 mx-auto mb-1" @click="show=!show" >
     <div class="text-xl-center w-75 mx-auto  text-white user-select-none">Налаштування станції</div>
   </div>
   <table class="table table-dark w-75 mx-auto user-select-none mb-1 mt-n1">
@@ -86,7 +86,7 @@ export default {
             active:true,
             value: 1,
             min: 1,
-            max: 5,
+            max: 3,
             step: 1,
             symbol: " клас",
             text: "текст"
@@ -95,18 +95,36 @@ export default {
       },
       stationTypes:{
         default:"",
-        nuclear:"Атомна електрична станція",
+        nuclear:{
+          name:"Атомна електрична станція",
+          fuel:39,
+          staff:5,
+          equipment:5,
+          ecology: 0,
+
+
+
+        },
         thermal:"Теплова електрична станція",
         solar:"Сонячна електрична станція",
         wind:"Вітрова електрична станція",
         hydro:"Гідро електрична станція"
       },
+      price:0,
+      genenration:[],
       tableHeaders:["Параметер","Опис","Налаштування", "Значення"],
-
     }
   },
-  methods:{
+  watch:{
 
+  },
+  methods:{
+    priceCalc(){
+    this.price=this.fuel
+    },
+    genCalc(){
+
+    },
   },
 }
 </script>

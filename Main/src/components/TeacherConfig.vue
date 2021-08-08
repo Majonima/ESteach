@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar navbar bg-dark w-75 mx-auto mb-1" @click="show=!show" rowspan="2" colspan="5" scope="col">
+  <div class="navbar navbar bg-dark w-75 mx-auto mb-1" @click="show=!show"  >
     <div class="w-75 mx-auto text-white user-select-none">Правила енергоринку</div>
   </div>
 <table class="table table-hover  table-dark w-75 mx-auto user-select-none mb-1 mt-n1" v-if="show">
